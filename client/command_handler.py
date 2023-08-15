@@ -35,7 +35,7 @@ async def get_last_hobby(message: types.Message, state: FSMContext):
         await message.answer("Рассказ ещё не загружен(")
 
 
-@dp.message_handler(commands='description_GPT_voice')
+@dp.message_handler(commands='description_gpt_voice')
 async def get_GPT_voice(message: types.Message, state: FSMContext):
     data = session.query(Attachment).filter(Attachment.command == "GPT_voice").one_or_none()
     if data:
