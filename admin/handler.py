@@ -41,7 +41,7 @@ async def download_selfie(message: types.Message, state: FSMContext):
         return
     data = {
         'command': 'selfie',
-        'text': str(message.caption),
+        'text': message.caption if message.caption else "",
         'path_to_file': path
     }
     await add_to_db(Attachment(**data))
@@ -67,7 +67,7 @@ async def download_graduation(message: types.Message, state: FSMContext):
         return
     data = {
         'command': 'graduation',
-        'text': str(message.caption),
+        'text': message.caption if message.caption else "",
         'path_to_file': path
     }
     await add_to_db(Attachment(**data))
@@ -86,7 +86,7 @@ async def add_hobby_text(callback : types.CallbackQuery, state: FSMContext):
 async def download_hobby(message: types.Message, state: FSMContext):
     data = {
         'command': 'hobby',
-        'text': str(message.text),
+        'text': message.text if message.text else "",
         'path_to_file': ""
     }
     await add_to_db(Attachment(**data))
@@ -111,7 +111,7 @@ async def download_gpt_voice(message: types.Message, state: FSMContext):
         return
     data = {
         'command': 'GPT_voice',
-        'text': str(message.caption),
+        'text': message.caption if message.caption else "",
         'path_to_file': path
     }
     await add_to_db(Attachment(**data))
@@ -136,7 +136,7 @@ async def download_sql_vs_nosql_voice(message: types.Message, state: FSMContext)
         return
     data = {
         'command': 'sql_vs_nosql',
-        'text': str(message.caption),
+        'text': message.caption if message.caption else "",
         'path_to_file': path
     }
     await add_to_db(Attachment(**data))
@@ -161,7 +161,7 @@ async def download_love_story_voice(message: types.Message, state: FSMContext):
         return
     data = {
         'command': 'love_story',
-        'text': str(message.caption),
+        'text': message.caption if message.caption else "",
         'path_to_file': path
     }
     await add_to_db(Attachment(**data))
@@ -180,7 +180,7 @@ async def add_repo(callback : types.CallbackQuery, state: FSMContext):
 async def download_repo(message: types.Message, state: FSMContext):
     data = {
         'command': 'repo',
-        'text': str(message.text),
+        'text': message.text if message.text else "",
         'path_to_file': ""
     }
     await add_to_db(Attachment(**data))
