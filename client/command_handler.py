@@ -40,7 +40,7 @@ async def get_GPT_voice(message: types.Message, state: FSMContext):
     data = session.query(Attachment).filter(Attachment.command == "GPT_voice").one_or_none()
     if data:
         with open(data.path_to_file, 'rb') as file:
-            await message.answer_photo(file, data.text)
+            await message.answer_voice(file, data.text)
     else:
         await message.answer("Рассказ ещё не загружен(")
 
@@ -50,7 +50,7 @@ async def get_sql_vs_nosql(message: types.Message, state: FSMContext):
     data = session.query(Attachment).filter(Attachment.command == "sql_vs_nosql").one_or_none()
     if data:
         with open(data.path_to_file, 'rb') as file:
-            await message.answer_photo(file, data.text)
+            await message.answer_voice(file, data.text)
     else:
         await message.answer("Рассказ ещё не загружен(")
 
@@ -60,7 +60,7 @@ async def get_love_story(message: types.Message, state: FSMContext):
     data = session.query(Attachment).filter(Attachment.command == "love_story").one_or_none()
     if data:
         with open(data.path_to_file, 'rb') as file:
-            await message.answer_photo(file, data.text)
+            await message.answer_voice(file, data.text)
     else:
         await message.answer("Рассказ ещё не загружен(")
 

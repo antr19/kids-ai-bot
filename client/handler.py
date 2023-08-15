@@ -48,7 +48,7 @@ async def get_GPT_voice(callback: types.CallbackQuery, state: FSMContext):
     data = session.query(Attachment).filter(Attachment.command == "GPT_voice").one_or_none()
     if data:
         with open(data.path_to_file, 'rb') as file:
-            await callback.message.answer_photo(file, data.text)
+            await callback.message.answer_voice(file, data.text)
     else:
         await callback.message.answer("Рассказ ещё не загружен(")
 
@@ -58,7 +58,7 @@ async def get_sql_vs_nosql(callback: types.CallbackQuery, state: FSMContext):
     data = session.query(Attachment).filter(Attachment.command == "sql_vs_nosql").one_or_none()
     if data:
         with open(data.path_to_file, 'rb') as file:
-            await callback.message.answer_photo(file, data.text)
+            await callback.message.answer_voice(file, data.text)
     else:
         await callback.message.answer("Рассказ ещё не загружен(")
 
@@ -68,7 +68,7 @@ async def get_love_story(callback: types.CallbackQuery, state: FSMContext):
     data = session.query(Attachment).filter(Attachment.command == "love_story").one_or_none()
     if data:
         with open(data.path_to_file, 'rb') as file:
-            await callback.message.answer_photo(file, data.text)
+            await callback.message.answer_voice(file, data.text)
     else:
         await callback.message.answer("Рассказ ещё не загружен(")
 
