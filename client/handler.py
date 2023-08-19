@@ -8,7 +8,7 @@ from app import dp, bot
 from models.attachment import Attachment, session
 
 
-@dp.message_handler(commands='start')
+@dp.message_handler(state='*', commands='start')
 async def admin(message: types.Message, state: FSMContext):
     await state.finish()
     await message.reply('Приветики!', reply_markup=kb.create_inkb_register())
